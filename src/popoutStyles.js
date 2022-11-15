@@ -1,20 +1,20 @@
 const popupContent = {
     textAlign: "center",
-    height: "350px",
-    marginTop: "30px"
+    height: "200px",
+    marginTop: "5px"
 };
 const popupHead = {
     fontWeight: "bold",
-    fontSize: "22px"
+    fontSize: "15px"
 };
 
 const popupText = {
-    fontSize: "15px",
-    marginBottom: "20px"
+    fontSize: "10px",
+    marginBottom: "5px"
 };
 
 const okText = {
-    fontSize: "15px"
+    fontSize: "12px"
 };
 
 export { popupContent, popupHead, popupText, okText };

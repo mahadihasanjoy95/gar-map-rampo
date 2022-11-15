@@ -2,3 +2,13 @@
     border-radius: 0px;
 }
 .rowC{display:flex; flex-direction:row;}
+.leaflet-container {
+    height: 600px;
+    width: 80%;
+    float: right;
+}
+
+.leaflet-div-icon {
+    background: transparent;
+    border: none;
+}
