@@ -29,8 +29,35 @@ export const statesData = {
       type: "Feature",
       id: "2",
       img:'./11.jpg',
-      marker: [41.112622, -74.040951],
+      marker: [41.06465903708306,-74.05194960082275],
       properties: { name: "11 Seabring St", density: 412.3 },
+      details: "Distance: 0.89 miles\n" +
+          "Printkey: 50.11-3-26\n" +
+          "Sale Date: 06/17/2021\n" +
+          "Sq Foot Living Area: 2,076\n" +
+          "Building Style : Raised Ranch\n" +
+          "Neighborhood: TOWN OUT",
+      geometry: {
+        type: "Polygon",
+      coordinates: [
+          [
+            [-74.05194960082275,41.06465903708306],
+            [-74.05270422164891,41.06479599684563],
+            [-74.05279511243961,41.06447004444972],
+            [-74.05281206542963,41.06440924546011],
+            [-74.05201247227374,41.06431641092869],
+            [-74.05198485814786,41.06446689722971],
+            [-74.05194960082275,41.06465903708306]
+          ],
+        ],
+      },
+    },
+    {
+      type: "Feature",
+      id: "3",
+      img:'./11.jpg',
+      marker: [41.112646, -74.040134],
+      properties: { name: "12 Seabring St", density: 412.3 },
       details: "Distance: 0.89 miles\n" +
           "Printkey: 50.11-3-26\n" +
           "Sale Date: 06/17/2021\n" +
@@ -41,40 +68,16 @@ export const statesData = {
         type: "Polygon",
         coordinates: [
           [
-            [-74.041242,41.112885],
-            [ -74.041365,41.112349],
-            [ -74.040854,41.112096],
-            [ -74.040951,41.112869],
+            [-74.040902,41.113237],
+            [-74.040175,41.113208],
+            [ -74.039912,41.111584],
+            [-74.040381,41.111519],
+            [-74.040491,41.111833],
+            [-74.040759,41.112041],
           ],
         ],
       },
     },
-    // {
-    //   type: "Feature",
-    //   id: "3",
-    //   img:'./11.jpg',
-    //   marker: [41.112646, -74.040134],
-    //   properties: { name: "12 Seabring St", density: 412.3 },
-    //   details: "Distance: 0.89 miles\n" +
-    //       "Printkey: 50.11-3-26\n" +
-    //       "Sale Date: 06/17/2021\n" +
-    //       "Sq Foot Living Area: 2,076\n" +
-    //       "Building Style : Raised Ranch\n" +
-    //       "Neighborhood: TOWN OUT",
-    //   geometry: {
-    //     type: "Polygon",
-    //     coordinates: [
-    //       [
-    //         [-74.040902,41.113237],
-    //         [-74.040175,41.113208],
-    //         [ -74.039912,41.111584],
-    //         [-74.040381,41.111519],
-    //         [-74.040491,41.111833],
-    //         [-74.040759,41.112041],
-    //       ],
-    //     ],
-    //   },
-    // },
     {
       type: "Feature",
       id: "4",

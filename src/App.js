@@ -1,116 +1,123 @@
-import React from 'react';
-import {
-  MapContainer,
-  TileLayer,
-  Polygon, Popup
-} from 'react-leaflet';
-import O from "leaflet.utm";
+import React, {useEffect, useState} from 'react';
+import {MapContainer, Polygon, Popup, TileLayer, useMap} from 'react-leaflet';
 import Marker from 'react-leaflet-enhanced-marker'
 
 import 'leaflet/dist/leaflet.css';
-import { statesData } from './data';
+import {statesData} from './data';
 import './App.css';
 import MarkerStyle from "./MarkerStyle";
-import { popupContent, popupHead, popupText, okText } from "./popoutStyles";
+import {okText, popupContent, popupHead, popupText} from "./popoutStyles";
 import markerImg from './10.jpg'
+import SimpleList from "./SimpleList ";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-const center = [41.1129866497784, -74.04109586871861];
-const position = [41.1129866497784, -74.04109586871861];
-
-
-const convertLatLong = () =>{
-  // require('leaflet')
-  // let item = O.utm({x: 467486.3, y: 4101149.3, zone: 30, band: 'S'});
-  // let cords = item.latLng();
-  // console.log("CORDS::::::::::::::::::::::::::::::::::::: ",cords)
-}
 
 export default function App() {
-  convertLatLong()
-  return (
-    <MapContainer
-      center={center}
-      zoom={100}
-      style={{ width: '100vw', height: '100vh' }}
-    >
-      <TileLayer
-        url="https://api.maptiler.com/maps/hybrid/256/{z}/{x}/{y}.jpg?key=AMILAL2XZ4SSJt95Glig"
-        attribution='<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'/>
+    const [center, setCenter] = useState([41.06465903708306, -74.05194960082275])
 
-      {
-        statesData.features.map((state) => {
-          const coordinates = state.geometry.coordinates[0].map((item) => [item[1], item[0]]);
-          // debugger
-          console.log("COORDINATE##### ", state.geometry.coordinates[0][2])
-          return (
-              <Marker position={state.marker} icon={<MarkerStyle/>}>
-                <Popup className='request-popup'>
-                  <div style={popupContent}>
-                    <img
-                        src={markerImg}
-                        width="150"
-                        height="150"
-                        alt="no img"
+    const [zoom, setZoom] = useState(10)
+    function clickHandler() {
+        setCenter([41.06465903708306,-74.05194960082275])
+    }
+    useEffect(()=>{
+        console.log("CENTER EVHNAGE TO::::::::: ",center)
+    },[center])
+    function ChangeView({ center, zoom }) {
+        const map = useMap();
+        map.setView(center, zoom);
+        return null;
+    }
+
+    return (
+        <div>
+            <div className='rowC'>
+                <SimpleList setCenter={setCenter} setZoom ={setZoom}/>
+                <MapContainer
+                    center={center}
+                    zoom={zoom}
+                    style={{width: '100vw', height: '100vh'}}
+                >
+                    <ChangeView center={center} zoom={zoom} />
+                    <TileLayer
+                        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                        attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                     />
-                    <div className="m-2" style={popupHead}>
-                      {state.properties.name}
-                    </div>
-                    <span style={popupText}>
+                    {/*<ReactLeafletGoogleLayer apiKey='' type={'satellite'} />*/}
+                    {
+                        statesData.features.map((state) => {
+                            const coordinates = state.geometry.coordinates[0].map((item) => [item[1], item[0]]);
+                            console.log("COORDINATE##### ", state.geometry.coordinates[0][2])
+                            return (
+                                <Marker position={state.marker} icon={<MarkerStyle/>}>
+                                    <Popup className='request-popup'>
+                                        <div style={popupContent}>
+                                            <img
+                                                src={markerImg}
+                                                width="150"
+                                                height="150"
+                                                alt="no img"
+                                            />
+                                            <div className="m-2" style={popupHead}>
+                                                {state.properties.name}
+                                            </div>
+                                            <span style={popupText}>
                       {state.details}
             </span>
-                    <div className="m-2" style={okText}>
-                      Okay
-                    </div>
-                  </div>
-                </Popup>
-              </Marker>)
-        })
-      }
-      {
-        statesData.features.map((state) => {
-          const coordinates = state.geometry.coordinates[0].map((item) => [item[1], item[0]]);
-
-          return (
-              <Polygon
-                  pathOptions={{
-                    // fillColor: '#FD8D3C',
-                    // fillOpacity: 0.7,
-                    fillColor:"none",
-                    weight: 2,
-                    opacity: 1,
-                    dashArray: 3,
-                    color: 'yellow'
-                  }}
-                  positions={coordinates}
-                  eventHandlers={{
-                    mouseover: (e) => {
-                      const layer = e.target;
-                      layer.setStyle({
-                        dashArray: "",
-                        // fillColor: "#BD0026",
-                        // fillOpacity: 0.7,
-                        weight: 2,
-                        opacity: 1,
-                        color: "yellow",
-                      })
-                    },
-                    mouseout: (e) => {
-                      const layer = e.target;
-                      layer.setStyle({
-                        // fillOpacity: 0.7,
-                        weight: 2,
-                        dashArray: "3",
-                        color: 'yellow',
-                        // fillColor: '#FD8D3C'
-                      });
-                    },
-                    click: (e) => {
-
+                                            <div className="m-2" style={okText}>
+                                                Okay
+                                            </div>
+                                        </div>
+                                    </Popup>
+                                </Marker>)
+                        })
                     }
-                  }}
-              />)
-        })
-      }
-    </MapContainer>
-  );
+                    {
+                        statesData.features.map((state) => {
+                            const coordinates = state.geometry.coordinates[0].map((item) => [item[1], item[0]]);
+
+                            return (
+                                <Polygon
+                                    pathOptions={{
+                                        // fillColor: '#FD8D3C',
+                                        // fillOpacity: 0.7,
+                                        fillColor: "none",
+                                        weight: 2,
+                                        opacity: 1,
+                                        dashArray: 3,
+                                        color: 'yellow'
+                                    }}
+                                    positions={coordinates}
+                                    eventHandlers={{
+                                        mouseover: (e) => {
+                                            const layer = e.target;
+                                            layer.setStyle({
+                                                dashArray: "",
+                                                // fillColor: "#BD0026",
+                                                // fillOpacity: 0.7,
+                                                weight: 2,
+                                                opacity: 1,
+                                                color: "yellow",
+                                            })
+                                        },
+                                        mouseout: (e) => {
+                                            const layer = e.target;
+                                            layer.setStyle({
+                                                // fillOpacity: 0.7,
+                                                weight: 2,
+                                                dashArray: "3",
+                                                color: 'yellow',
+                                                // fillColor: '#FD8D3C'
+                                            });
+                                        },
+                                        click: (e) => {
+
+                                        }
+                                    }}
+                                />)
+                        })
+                    }
+                </MapContainer>
+            </div>
+        </div>
+    );
 }
