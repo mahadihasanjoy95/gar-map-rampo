@@ -1,14 +1,12 @@
 import React, {useRef, useState} from 'react';
 import {MapContainer, Marker, Polygon, Popup, TileLayer, useMap} from 'react-leaflet';
-// import Marker from 'react-leaflet-enhanced-marker'
 import "leaflet/dist/leaflet.css";
 import {statesData} from './data';
 import './App.css';
-import {okText, popupContent, popupHead, popupText} from "./popoutStyles";
+import {popupContent, popupHead, popupText} from "./popoutStyles";
 import markerImg from './10.jpg'
 import SimpleList from "./SimpleList ";
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import { MarkerLayer, Marker } from "react-leaflet-marker";
 import abcd from "./icon.png";
 import shadow from "./shadow.png";
 
@@ -59,6 +57,7 @@ export default function App() {
                 <div class="overflow-auto">
                     <SimpleList setCenter={setCenter} setZoom={setZoom} onClickShowMarker={onClickShowMarker}/>
                 </div>
+
                 <MapContainer
                     center={center}
                     zoom={zoom}
@@ -67,7 +66,6 @@ export default function App() {
                         mapRef.current = map;
                     }}
                 >
-                    <ChangeView center={center} zoom={zoom}/>
                     <TileLayer
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
@@ -77,7 +75,8 @@ export default function App() {
                         statesData.features.map((state) => {
                             return (
                                 <Marker ref={ref => markerRef[state.id] = ref} position={state.marker}
-                                        icon={Icon}> <Popup className='request-popup'>
+                                        icon={Icon}>
+                                    <Popup className='request-popup'>
                                     <div style={popupContent}>
                                         <img
                                             src={markerImg}
@@ -91,8 +90,8 @@ export default function App() {
                                         <span style={popupText}>
                                               {state.details}
                                     </span>
-                                        <div className="m-2" style={okText}>
-                                        </div>
+                                        <br/>
+                                        <button type="button" class="btn btn-warning btn-sm" onClick={()=>{alert("Hi")}}>See Details</button>
                                     </div>
                                 </Popup>
 

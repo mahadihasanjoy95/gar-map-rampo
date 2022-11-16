@@ -1,20 +1,20 @@
 const popupContent = {
     textAlign: "center",
     height: "200px",
-    marginTop: "5px"
+    marginTop: "5px",
+    backgroundColor : "#002C8F",
+    textColor : "white"
 };
 const popupHead = {
     fontWeight: "bold",
-    fontSize: "15px"
+    fontSize: "15px",
+    color : "white"
 };
 
 const popupText = {
     fontSize: "10px",
-    marginBottom: "5px"
+    marginBottom: "5px",
+    color : "white"
 };
 
-const okText = {
-    fontSize: "12px"
-};
-
-export { popupContent, popupHead, popupText, okText };
+export { popupContent, popupHead, popupText };
