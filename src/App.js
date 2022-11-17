@@ -9,23 +9,35 @@ import SimpleList from "./SimpleList ";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import abcd from "./icon.png";
 import shadow from "./shadow.png";
+import Modal from 'react-bootstrap/Modal';
 
 import L from "leaflet";
 
 export default function App() {
+    const [selectedItem, setSelectedItem] = useState(  {
+        type: "",
+        id: "",
+        properties: { name: "", density:0},
+        img:"",
+        details: "",
+        marker: [],
+        geometry: {
+            type: "",
+            coordinates: [
+            ],
+        },
+    })
     const [center, setCenter] = useState([41.06465903708306, -74.05194960082275])
-
     const [zoom, setZoom] = useState(10)
     const mapRef = useRef(null);
     const markerRef = [];
+    const [fullscreen, setFullscreen] = useState(true);
+    const [show, setShow] = useState(false);
 
-
-    function ChangeView({center, zoom}) {
-        const map = useMap();
-        map.setView(center, zoom);
-        return null;
+    function handleShow() {
+        setFullscreen("xxl-down");
+        setShow(true);
     }
-
     let Icon = L.icon({
         iconUrl: abcd,
         shadowUrl: shadow,
@@ -35,8 +47,6 @@ export default function App() {
         shadowAnchor: [4, 62],
         popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
     });
-
-
     const onClickShowMarker = (MARKER_POSITION) => {
 
         const map = mapRef.current;
@@ -55,7 +65,7 @@ export default function App() {
         <div>
             <div className='rowC container-fluid vh-100'>
                 <div class="overflow-auto">
-                    <SimpleList setCenter={setCenter} setZoom={setZoom} onClickShowMarker={onClickShowMarker}/>
+                    <SimpleList setCenter={setCenter} setZoom={setZoom} onClickShowMarker={onClickShowMarker} setSelectedItem={setSelectedItem} selectedItem={selectedItem}/>
                 </div>
 
                 <MapContainer
@@ -75,7 +85,14 @@ export default function App() {
                         statesData.features.map((state) => {
                             return (
                                 <Marker ref={ref => markerRef[state.id] = ref} position={state.marker}
-                                        icon={Icon}>
+                                        icon={Icon}
+                                        eventHandlers={{
+                                    click: (e) => {
+                                        onClickShowMarker(state);
+                                        setSelectedItem(state)
+                                    },
+                                }}
+                                >
                                     <Popup className='request-popup'>
                                     <div style={popupContent}>
                                         <img
@@ -91,7 +108,7 @@ export default function App() {
                                               {state.details}
                                     </span>
                                         <br/>
-                                        <button type="button" class="btn btn-warning btn-sm" onClick={()=>{alert("Hi")}}>See Details</button>
+                                        <button type="button" class="btn btn-warning btn-sm" onClick={handleShow}>See Details</button>
                                     </div>
                                 </Popup>
 
@@ -146,6 +163,20 @@ export default function App() {
                         })
                     }
                 </MapContainer>
+                <Modal show={show} fullscreen={fullscreen} onHide={() => setShow(false)}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>{selectedItem.properties.name}</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <img
+                            src={markerImg}
+                            width="300"
+                            height="300"
+                            alt="no img"
+                        />
+                        <p>{selectedItem.details}</p>
+                    </Modal.Body>
+                </Modal>
             </div>
         </div>
     );

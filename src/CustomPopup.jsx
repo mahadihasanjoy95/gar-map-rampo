@@ -1,6 +1,6 @@
 import React from 'react';
 
-function PropertyDetails(props) {
+function CustomPopup(props) {
     return (
         <div>
             Hello Div
@@ -8,4 +8,4 @@ function PropertyDetails(props) {
     );
 }
 
-export default PropertyDetails;
+export default CustomPopup;
