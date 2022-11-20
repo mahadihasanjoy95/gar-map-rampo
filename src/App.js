@@ -14,21 +14,24 @@ import Modal from 'react-bootstrap/Modal';
 import L from "leaflet";
 
 export default function App() {
-    const [selectedItem, setSelectedItem] = useState(  {
-        type: "",
-        id: "",
-        properties: { name: "", density:0},
-        img:"",
-        details: "",
-        marker: [],
-        geometry: {
-            type: "",
-            coordinates: [
-            ],
+    const [selectedItem, setSelectedItem] = useState(      {
+        "datasetid": "",
+        "recordid": "",
+        "fields": {
+            "tax_coord": "",
+            "site_id": "",
+            "geom": {
+                "coordinates": [
+                ],
+                "type": ""
+            },
+            "streetname": "",
+            "civic_number": ""
         },
-    })
-    const [center, setCenter] = useState([41.06465903708306, -74.05194960082275])
-    const [zoom, setZoom] = useState(10)
+        "record_timestamp": "",
+    },)
+    const [center, setCenter] = useState([49.253282185569894,  -123.04585075637534,])
+    const [zoom, setZoom] = useState(16)
     const mapRef = useRef(null);
     const markerRef = [];
     const [fullscreen, setFullscreen] = useState(true);
@@ -53,13 +56,17 @@ export default function App() {
         if (!map) {
             return;
         }
-        map.flyTo(MARKER_POSITION.marker, 19);
+        map.flyTo(calculateMarker(MARKER_POSITION.fields.geom.coordinates[0]), 18);
 
-        const marker = markerRef[MARKER_POSITION.id];
+        const marker = markerRef[MARKER_POSITION.recordid];
         if (marker) {
             marker.openPopup();
         }
     };
+    const calculateMarker = (coordinates) => {
+        let newCoordinates = coordinates.slice(0,1).map((item) => [item[1], item[0]])
+        return newCoordinates[0]
+    }
 
     return (
         <div>
@@ -84,7 +91,7 @@ export default function App() {
                     {
                         statesData.features.map((state) => {
                             return (
-                                <Marker ref={ref => markerRef[state.id] = ref} position={state.marker}
+                                <Marker ref={ref => markerRef[state.recordid] = ref} position={calculateMarker(state.fields.geom.coordinates[0])}
                                         icon={Icon}
                                         eventHandlers={{
                                     click: (e) => {
@@ -102,10 +109,10 @@ export default function App() {
                                             alt="no img"
                                         />
                                         <div className="m-2" style={popupHead}>
-                                            {state.properties.name}
+                                            {state.fields.civic_number}
                                         </div>
                                         <span style={popupText}>
-                                              {state.details}
+                                              {state.fields.streetname}
                                     </span>
                                         <br/>
                                         <button type="button" class="btn btn-warning btn-sm" onClick={handleShow}>See Details</button>
@@ -119,7 +126,7 @@ export default function App() {
                     }
                     {
                         statesData.features.map((state) => {
-                            const coordinates = state.geometry.coordinates[0].map((item) => [item[1], item[0]]);
+                            const coordinates = state.fields.geom.coordinates[0].map((item) => [item[1], item[0]]);
 
                             return (
                                 <Polygon
@@ -165,7 +172,7 @@ export default function App() {
                 </MapContainer>
                 <Modal show={show} fullscreen={fullscreen} onHide={() => setShow(false)}>
                     <Modal.Header closeButton>
-                        <Modal.Title>{selectedItem.properties.name}</Modal.Title>
+                        <Modal.Title>{selectedItem.fields.civic_number}</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
                         <img
@@ -174,7 +181,11 @@ export default function App() {
                             height="300"
                             alt="no img"
                         />
-                        <p>{selectedItem.details}</p>
+                        <p><strong>Street Name: </strong>{selectedItem.fields.streetname}</p>
+                        <p><strong>Tax Number: </strong>{selectedItem.fields.tax_coord}</p>
+                        <p><strong>Site ID: </strong>{selectedItem.fields.site_id}</p>
+                        <p><strong>Record ID: </strong>{selectedItem.recordid}</p>
+                        <p><strong>Record TimeStamp: </strong>{selectedItem.record_timestamp}</p>
                     </Modal.Body>
                 </Modal>
             </div>
