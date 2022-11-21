@@ -1,6 +1,7 @@
 const popupContent = {
     textAlign: "center",
     height: "200px",
+    width:"200px",
     marginTop: "5px",
     backgroundColor : "#002C8F",
     textColor : "white"
