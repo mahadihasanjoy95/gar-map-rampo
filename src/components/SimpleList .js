@@ -1,7 +1,7 @@
 import React from 'react';
-import {statesData} from './data';
+import {statesData} from '../dataset/data';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import markerImg from './10.jpg'
+import markerImg from '../images/10.jpg'
 
 function SimpleList(props) {
     return (
