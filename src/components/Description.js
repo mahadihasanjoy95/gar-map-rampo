@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import { useMap } from "react-leaflet";
-import L, { LeafletMouseEvent, Map } from "leaflet";
+import React, {Component} from "react";
+import {useMap} from "react-leaflet";
+import L from "leaflet";
 
 class Description extends React.Component {
     helpDiv;
@@ -12,27 +12,17 @@ class Description extends React.Component {
                 this.helpDiv = helpDiv;
                 helpDiv.innerHTML = this.props.title;
                 helpDiv.addEventListener("click", () => {
-                //     console.log(map.getCenter());
-                //     const marker = L.marker()
-                //         .setLatLng(this.props.markerPosition)
-                //         .bindPopup(this.props.description)
-                //         .addTo(map);
-                //
-                //     marker.openPopup();
-                    this.props.type === "roadmap"? this.props.setType("satellite") : this.props.setType("roadmap")
+                    this.props.type === "roadmap" ? this.props.setType("satellite") : this.props.setType("roadmap")
 
                 });
-
-                //a bit clueless how to add a click event listener to this button and then
-                // open a popup div on the map
                 return helpDiv;
             }
         });
-        return new MapHelp({ position: "bottomright" });
+        return new MapHelp({position: "topright"});
     }
 
     componentDidMount() {
-        const { map } = this.props;
+        const {map} = this.props;
         const control = this.createButtonControl();
         control.addTo(map);
     }
@@ -49,7 +39,7 @@ class Description extends React.Component {
 function withMap(Component) {
     return function WrappedComponent(props) {
         const map = useMap();
-        return <Component {...props} map={map} />;
+        return <Component {...props} map={map}/>;
     };
 }
 

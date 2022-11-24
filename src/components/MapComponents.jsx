@@ -4,7 +4,6 @@ import "leaflet/dist/leaflet.css";
 import {statesData} from '../dataset/data';
 import '../App.css';
 import {popupContent, popupHead, popupText} from "../styles/popoutStyles";
-import markerImg from '../images/10.jpg'
 import SimpleList from "./SimpleList ";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import abcd from "../images/icon.png";
@@ -149,7 +148,7 @@ function MapComponents(props) {
                                     <Popup className='request-popup'>
                                         <div style={popupContent}>
                                             <img
-                                                src={markerImg}
+                                                src={"https://ny-ramapo-citizen.comper.info/images/streetview.php?lat=41.119058259300424&lng=-74.02786857427738"}
                                                 width="100"
                                                 height="100"
                                                 alt="no img"
@@ -225,7 +224,7 @@ function MapComponents(props) {
                     </Modal.Header>
                     <Modal.Body>
                         <img
-                            src={markerImg}
+                            src={"https://ny-ramapo-citizen.comper.info/images/streetview.php?lat=41.119058259300424&lng=-74.02786857427738"}
                             width="300"
                             height="300"
                             alt="no img"
