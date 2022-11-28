@@ -1,0 +1,68 @@
+{
+  "translation": {
+    "HEADER": {
+      "ADMIN_TYPE": "スーパー管理者",
+      "LOGOUT": "ログアウト",
+      "PROFILE": "プロフィール",
+      "CLOUD_BUTTON": "アップロード"
+    },
+    "SIDE_NAV": {
+      "MENU_ITEM": {
+        "CONTENT": "コンテンツ",
+        "PUBLIC": "公　開",
+        "STATISTICS": "統　計",
+        "RAW_MATERIAL": "素　材",
+        "USER": "ユーザー管理",
+        "SYSTEM_SETTING": "システム設定",
+        "ROLE_SETTINGS": "ロール設定",
+        "MAIL_MAGAZINE": "メール",
+        "PROFILE": "プロフィール",
+        "MEMBER": "会員管理",
+        "MAIL":"メール一覧"
+      }
+    },
+    "HEADER_DROPDOWN": ["login", "signup", "admin", "users"],
+    "LANGUAGE": {
+      "ENGLISH": "English",
+      "JAPANESE": "日本語"
+    },
+    "DASHBOARD": {
+      "WELCOME_TEXT": "管理へようこそ"
+    },
+    "COMMON": {
+      "BUTTON_SEND": "送信"
+    },
+    "ERROR_API": {
+      "SERVER_NOT_ACCESS": "何かがうまくいかなかった。"
+    },
+    "SUCCESS_MESSAGE_API": {
+      "ADD": "Item successfully added",
+      "REMOVE": "Item successfully deleted",
+      "UPDATE": "Successfully updated"
+    },
+    "USER_LIST": {
+      "LOCKED": "ロック"
+    },
+    "BUTTON": {
+      "CSV_UPLOAD": "CSV アップロード",
+      "CSV_DOWNLOAD": "CSV ダウンロード",
+      "DELETE": "削除"
+    },
+    "REGISTRATION": {
+      "PASSWORD_LENGTH_ERROR":"パスワードは英数字で8〜32文字にする必要があります。"
+    },
+    "REQUIRED": {
+      "MESSAGE": "この項目は必須です。"
+    },
+    "CONFIRM_MODAL":{
+      "BUTTON_NO": "いいえ",
+      "BUTTON_YES": "はい"
+    },
+    "INVITATION_STATUS":{
+      "NOT_YET": "未送信",
+      "SENT": "送信済",
+      "ACCEPTED": "受理済"
+    }
+
+  }
+}

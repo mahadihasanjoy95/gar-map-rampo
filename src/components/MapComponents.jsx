@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {LayersControl, MapContainer, Marker, Polygon, Popup} from 'react-leaflet';
 import "leaflet/dist/leaflet.css";
 import {statesData} from '../dataset/data';
@@ -10,11 +10,15 @@ import abcd from "../images/icon.png";
 import shadow from "../images/shadow.png";
 import Modal from 'react-bootstrap/Modal';
 import ReactLeafletGoogleLayer from 'react-leaflet-google-layer';
-
 import L from "leaflet";
 import Description from "./Description";
+import AxiosServices from "../networks/AxiosService";
+import ApiUrlServices from "../networks/ApiUrlServices";
 
 function MapComponents(props) {
+    useEffect(()=>{
+        // signIn()
+    },[])
     const {BaseLayer} = LayersControl;
     const key = 'Your Key goes here';
     const [selectedItem, setSelectedItem] = useState({
@@ -50,9 +54,9 @@ function MapComponents(props) {
             c[1] += (p1[1] + p2[1] - 2 * first[1]) * f;
         }
         f = twicearea * 3;
-        let result = [0,0];
-        result[1] = c[0]/f + first[0]
-        result[0] = c[1]/f + first[1]
+        let result = [0, 0];
+        result[1] = c[0] / f + first[0]
+        result[0] = c[1] / f + first[1]
         return result
     }
 
@@ -91,14 +95,23 @@ function MapComponents(props) {
             marker.openPopup();
         }
     };
-    const calculateMarker = (coordinates) => {
-        let newCoordinates = coordinates.slice(0, 1).map((item) => [item[1], item[0]])
-        console.log("OLD middle point:::::::::::: ", newCoordinates[0])
-        return newCoordinates[0]
+
+    const signIn = async () => {
+        const data = {
+            medium: "email",
+            emailOrPhone: "masudur.rahman@shadhinlab.com",
+            password: "asd123456",
+        };
+        try {
+            let response = await AxiosServices.post(ApiUrlServices.SIGN_IN, data, false);
+            console.log(response)
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     return (
-        <div>
+        <div className={"h-100"}>
             <div className='rowC container-fluid vh-100'>
                 <div class="overflow-auto">
                     <SimpleList setCenter={setCenter} setZoom={setZoom} onClickShowMarker={onClickShowMarker}
@@ -113,18 +126,6 @@ function MapComponents(props) {
                         mapRef.current = map;
                     }}
                 >
-                    {/*<TileLayer*/}
-                    {/*    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"*/}
-                    {/*    attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'*/}
-                    {/*/>*/}
-                    {/*{viewType==="satellite"?<ReactLeafletGoogleLayer apiKey='' type={"satellite"}/>:*/}
-                    {/*    <ReactLeafletGoogleLayer apiKey='' type={"terrain"} />*/}
-                    {/*}*/}
-                    {/*<TileLayer*/}
-                    {/*    url='https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}'*/}
-                    {/*    maxZoom= {20}*/}
-                    {/*    subdomains={['mt1','mt2','mt3']}*/}
-                    {/*/>*/}
                     <ReactLeafletGoogleLayer key={type} type={type}/>
 
                     <Description

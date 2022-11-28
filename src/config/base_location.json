@@ -1,0 +1,40 @@
+{
+    "maintenance": false,
+    "web_base_url": "https://dev.onestoplms.com",
+    "api_base_url": "https://api.onestoplms.com/dev",
+    "cookie_url_endpoint": ".onestoplms.com",
+    "auth0_redirected_endpoint": "dev-login",
+    "social_api_base_url": "https://auth-development.onestoplms.com",
+    "cloudfront_base_url": "https://streamdev.onestoplms.com/public/",
+    "cognitoUserPoolId": "ap-south-1_r14JB7wPC",
+    "identityPoolId": "ap-south-1:d326191d-4063-4f17-81c5-3781f9260971",
+    "bucket": "oslms-media-conversion-stack-source-bucket-development",
+    "region": "ap-south-1",
+    "content_management": {
+        "landing_page": {
+		    "page_id": 1,
+            "page_name": "Landing Page"
+        }
+    },
+    "aws": {
+        "cognito_app_client_id": "6o301or6c0boeejf40hagc5il2",
+        "auth0_app_client_id": "1nAVwKMKb5zPySy34aTfRFR2KKPdBsFi"
+    },
+    "firebase": {
+        "apiKey": "",
+        "authDomain": "",
+        "projectId": "",
+        "storageBucket": "",
+        "messagingSenderId": "",
+        "appId": "",
+        "measurementId": ""
+    },
+    "payment": {
+        "paypal_sandbox_client_id": "AbKeplaFF9KAikP3DN5XRLJtVtbcFXKaqQ3y69IoxgVMp1nG2C3nPfNnZ743krsM64qMEOZkCViQBETu",
+        "paypal_prod_client_id": "paypal_sandbox_client_id"
+    },
+    "chimeChatConfig": {
+        "appInstanceArn": "arn:aws:chime:us-east-1:092792162103:app-instance/80251070-cf74-4bea-951a-42ca8388873d",
+        "chimeMessagingRegion": "us-east-1"
+    }
+}

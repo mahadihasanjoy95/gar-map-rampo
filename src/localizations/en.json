@@ -1,0 +1,308 @@
+{
+  "BUTTON_SEND": "Button",
+  "auth": {
+    "Registration": {
+      "SIGNUP_SUCCESSFUL": "User signup is successful. You will receive an email/SMS containing a confirmation link/code. Please confirm your account before signing in.",
+      "SIGNUP_CONFIRMED": "Signup confirmed. You can now log into your account",
+      "USERNAME_ALREADY_EXISTS": {
+        "email": "Email already exists",
+        "phone": "Mobile Number already exists"
+      }
+    },
+    "confirmLink": {
+      "SIGNUP_CONFIRMED": "Email has been confirmed successfully",
+      "SIGNUP_CONFIRMED_PHONE": "Mobile number verification successful.",
+      "GENERIC": "Email already verified",
+      "USER_ATTRIBUTE_VERIFIED": "Email has been verified",
+      "MEDIUM_PHONE_EMAIL": "Verification medium must be one of the following: phone,email",
+      "error": {
+        "CONFIRMATION_CODE_EXPIRED": "Confirmation link has expired.",
+        "INVALID_CODE": "Invalid code provided.",
+        "VALIDATION_ERROR": "Confirmation Code: ensure this value has at least 6 characters.",
+        "GENERIC": "Invalid code provided, please request a code again.",
+        "codeExpired": {
+          "GENERIC": "Verification code expired"
+        }
+      },
+      "VERIFICATION_CODE_EMAIL": "Can't send verification link. try again"
+    },
+    "login": {
+      "GENERIC": "Sign in successful",
+      "Not_Login": {
+        "GENERIC": {
+          "email": "No user found with this email.",
+          "phone": "No user found with this mobile."
+        },
+        "ACCOUNT_DELETED": {
+          "email": "No user found with this email..",
+          "phone": "No user found with this mobile.."
+        },
+        "USER_NOT_FOUND": {
+          "email": "No user found with this email...",
+          "phone": "No user found with this mobile..."
+        },
+        "LIMIT_EXCEEDED_EXCEPTION": {
+          "message": "Attempt limit exceeded! Please try after some time."
+        }
+      },
+      "USER_NOT_CONFIRMED": {
+        "email": "User account not confirmed! please check email for an account confirmation link.",
+        "phone": "User account not confirmed! please check SMS for  account confirmation code."
+      },
+      "TOO_MANY_REQUESTS": {
+        "message": "Something went wrong"
+      },
+      "ACCOUNT_BLOCKED": "Your account is locked, please contact support.",
+      "SIGNIN_NOT_AUTHORIZED": {
+        "email": "Incorrect email or password.",
+        "phone": "Incorrect mobile number or password."
+      },
+      "ADMIN_LOGIN": "Admin can not login to this system",
+      "SOCIAL_LOGIN": "Something went wrong. Try again",
+      "GENERIC_EMAIL": "A new confirmation link has been sent to your email ",
+      "GENERIC_PHONE": "A new code has been sent to your phone ",
+      "SOCIAL_LOGIN_ROLE_BLOCKED": "You are account is blocked. Contact us for support"
+    },
+    "forget-password": {
+      "FP_CODE_DELIVERED": {
+        "email": "Email sent to",
+        "phone": "OTP sent to this"
+      },
+      "GENERIC": {
+        "email": "No user found with this email",
+        "phone": "No user found with this mobile number"
+      }
+    },
+    "forget-password-confirm": {
+      "FP_CODE_DELIVERED": {
+        "email": "Email sent to",
+        "phone": "OTP sent to"
+      },
+      "VALID_OTP": "Please input valid OTP",
+      "EXPIRED_CODE": "Wrong or expired confirmation code",
+      "VALIDATION_ERROR": "Input value is wrong, try again later.",
+      "CODE_VALID": "Confirmation code is valid",
+      "INVALID_CODE": "Invalid code",
+      "CONFIRMATION_CODE_EXPIRED": "Confirmation code has expired",
+      "GENERIC": "Attempt limit exceeded, please try after some time"
+    },
+    "reset-password": {
+      "PASSWORD_REUSE_DISALLOWED": "You cannot reuse a previously used password.",
+      "PASSWORD_TRY_THREE_TIME": "You tried to use the previous password 3 times",
+      "GENERIC": "The new password was set successfully."
+    }
+  },
+
+  "cart": {
+    "GENERIC": "The course is added to the cart successfully",
+    "COURSE_ALREADY_ADDED_CART": "The course is already added in cart.",
+    "removeCart": {
+      "GENERIC": "Item removed from cart successfully."
+    },
+    "wishListAdd": {
+      "GENERIC": "Course has been added to the wish list."
+    },
+    "couponCode": {
+      "couponApply": {
+        "GENERIC": "Coupon added successfully"
+      },
+      "removeCoupon": {
+        "GENERIC": "Coupon removed successfully"
+      },
+      "expired": {
+        "GENERIC": "The coupon is expired"
+      },
+      "couponNotFound": {
+        "GENERIC": "Coupon not found"
+      },
+      "invalidCourseWiseCoupon": {
+        "GENERIC": "This coupon is not valid for this course."
+      }
+    },
+    "TRANSACTION": "Transaction was not successful. Please contact us for support.",
+    "SOMETHING_WRONG": "Something went wrong! Try again",
+    "MINIMUN_CHECKOUT": "Minimum checkout amount is 10 taka.",
+    "PURCHASE_COURSE": "Sorry! You can not buy more than 5 courses at a time",
+    "PAYMENT_STATUS": "Payment failed"
+  },
+
+  "dashboard": {
+    "GENERIC": "Sales report"
+  },
+
+  "profile": {
+    "basic": {
+      "GENERIC": "Profile updated successfully."
+    },
+    "CAN_NOT_UPDATE_PROFILE": "Can't update your profile, try again",
+    "socials": {
+      "empty_link": "Nothing to update, thank you",
+      "Success": "Social links has been updated successfully"
+    },
+    "changePassword": {
+      "newPassword": {
+        "GENERIC": "New password was set successfully"
+      },
+      "PASSWORD_REUSE_DISALLOWED": "Cannot reuse previously used passwords",
+      "NOT_AUTHORIZED": "Incorrect password for the user.",
+      "GENERIC": "Attempt limit exceeded, please try after some time.",
+      "VALIDATION_ERROR": "Password length should be at least 6 characters"
+    }
+  },
+
+  "notificationSettings": {
+    "GENERIC": "Notification settings updated successfully"
+  },
+
+  "courseReview": {
+    "INSTRUCTOR_ID_NOT_FOUND": "No instructor found!",
+    "GENERIC": "Course review added successfully",
+    "ALREADY_REVIEW": "Course already reviewed"
+  },
+
+  "contactUs": {
+    "GENERIC": "Message was sent successfully"
+  },
+
+  "newsletterSubscription": {
+    "GENERIC": "Thank you for subscribing to the newsletter.",
+    "error": {
+      "GENERIC": "Newsletter subscription failed",
+      "DUPLICATE_EMAIL": "This email is already subscribed"
+    }
+  },
+  "newsletterUnsubscription": {
+    "GENERIC": "You have successfully unsubscribed.",
+    "error": {
+      "GENERIC": "Newsletter unsubscription failed"
+    }
+  },
+
+  "courseWiseStudentList": {
+    "assignmentReview": {
+      "GENERIC": "Assignment evaluation added successfully."
+    },
+    "interviewReview": {
+      "GENERIC": "Viva evaluation added successfully."
+    },
+    "createMeeting": {
+      "GENERIC": "Meeting schedule created successfully."
+    },
+    "NOT_AUTHORIZED": "You are not authorized to see this page.",
+
+    "CERTIFICATE_ISSUE": "Certificate issued successfully.",
+    "LOGGED_IN": "You must be logged in to join the meeting.",
+    "MEETING_END": "Viva schedule time has expired.",
+    "UNAUTHORISED_USER": "You are not allowed to join the meeting",
+    "MEETING_END_SUCCESSFULLY": "Meeting ended successfully",
+    "MEETING_INVALID": "Meeting is invalid.",
+    "MEETING_NOT_END": "Could not end meeting.",
+    "MEETING_SERVER_ERROR": "Server error ending meeting.",
+    "MEETING_END_HOST": "The meeting has ended."
+  },
+
+  "courseCreate": {
+    "Create": {
+      "GENERIC": "Course created successfully",
+      "STUDENT_NOT_CREATE_COURSE": "Only instructor can add courses",
+      "DUPLICATE_ERROR": "Slug is already applied for another course, please change it."
+    },
+    "courseCreateError": {
+      "error": {
+        "GENERIC": "Only instructor can add courses",
+        "USER_NOT_MENTOR": "Only instructor can add courses"
+      }
+    }
+  },
+
+  "applyAsInstructor": {
+    "SIGNIN_NOT_AUTHORIZED": "Incorrect password",
+    "USERNAME_ALREADY_EXISTS": "Email already exists",
+    "error": {
+      "somethingWrongOccured": "Something went wrong! Please try again after a moment"
+    }
+  },
+
+  "chapterLessonCreate": {
+    "GENERIC": "Chapter and lesson added successfully.",
+    "CHAPTER_LESSON_ADD": "Chapter and lesson added successfully",
+    "CHAPTER_UPDATE": "Chapter updated successfully.",
+    "LESSON_UPDATE": "Lesson updated successfully.",
+    "LESSON_ADD": "Lesson added successfully.",
+    "LESSON_ERROR": "Failed to create lesson",
+    "ASSIGNMENT_LIMIT_EXCEEDED": "Can't add assignment because the number of assignment is exceeded",
+    "ASSIGNMENT_ADD": "Assignment added successfully.",
+    "ASSIGNMENT_UPDATE": "Assignment updated successfully.",
+    "FINAL_ASSIGNMENT": "Final Exam Assignment updated successfully.",
+    "INVALID_ASSIGNMENT_LIMIT": "Assignment limit not set yet",
+    "ASSIGNMENT_SUBMITTED": "Assignment successfully submitted.",
+    "VALIDATION_ERROR": "Assignment already submitted.",
+    "QUIZ_LIMIT_EXCEEDED": "Can't add quiz because the number of quiz is exceeded",
+    "QUIZ_ADD": "Quiz added successfully.",
+    "QUIZ_UPDATE": "Quiz updated successfully.",
+    "INVALID_QUIZ_LIMIT": "Quiz limit not set yet.",
+    "QUIZ_SUBMITTED": "Quiz successfully submitted.",
+    "INVALID_INTERVIEW_LIMIT": "Interview limit not set yet!",
+    "INTERVIEW_LIMIT_EXCEEDED": "Can't add interview because the number of interviews is exceeded.",
+    "INTERVIEW_ADD": "Interview added successfully.",
+    "FINAL_EXAM_ADD": "Final Exam added successfully.",
+    "FINAL_EXAM_UPDATE": "Final Exam updated successfully.",
+    "FINAL_EXAM_ERROR": "Final Exam update failed.",
+    "FILE_UPLOAD_ERROR": "File Upload Failed.",
+    "COURSE_CANCEL": "Request sent to admin successfully.",
+    "COMPLETE_LAST_VIDEO": "Please complete the last lesson.",
+    "CONTINUE_LAST_MCQ_EXAM": "To continue you have to pass the last MCQ exam.",
+    "EXAM_PROGRESS_LOST": "Your exam progress will be lost, confirm to exit..",
+    "ASSIGNMENT_VALUE": "Value must be between 0 and 100.",
+    "ASSIGNMENT_WEIGHT_REQUIRED": "This field is required.",
+    "ASSIGNMENT_MIN_WEIGHT": "Value must be greater then 0.",
+    "ASSIGNMENT_WEIGHT": "Assignment weight must be greater than zero.",
+    "INTERVIEW_VALUE": "Value must be between 0 and 100.",
+    "INTERVIEW_WEIGHT_REQUIRED": "This field is required.",
+    "INTERVIEW_MIN_WEIGHT": "Value must be greater then 0.",
+    "INTERVIEW_WEIGHT": "Viva weight must be greater than zero.",
+    "QUIZ_MIN_WEIGHT": "Value must be greater then 0.",
+    "QUIZ_WEIGHT": "Quiz weight must be greater than zero.",
+    "TOTAL_WEIGHT": "Total weight must be  100.",
+    "EXAM_SETUP": {
+      "GENERIC": "Mark distribution setup successful.",
+      "VALIDATION_ERROR": "Select greater than or equal to the created number of"
+    }
+  },
+
+  "courseUpdate": {
+    "COURSE_UPDATE": "Saved as draft successfully.",
+    "SUBMIT_REVIEW_COURSE": "Course review submit successfully.",
+    "COURSE_NAME_CATEGORY_UPDATE": "Course name and category updated successfully.",
+    "createNotes": {
+      "DISCUSSION_ADD": "Discussion topic added successfully.",
+      "COMMENT_ADD": "Comment added successfully.",
+      "FILE_UPLOAD_ERROR": "Can't upload video in notes attachment.",
+      "FILE_LENGTH_ERROR": "Can't add more than 3 files.",
+      "NOT_VIDEO_UPLOAD_ERROR": "Can't upload video in comments.",
+      "COURSE_ID_NOT_FOUND": "No course found"
+    },
+    "question": {
+      "QUESTION_ADD": "Q&A has been created successfully.",
+      "GENERIC": "Q&A has been updated successfully."
+    },
+    "previewImageVideo": {
+      "URL_UPDATE": "Preview url updated successfully.",
+      "PREVIEW_VIDEO_UPDATE": "Preview video updated successfully.",
+      "HEADER_IMAGE_UPDATE": "Cover Image updated successfully"
+    }
+  },
+
+  "navBar": {
+    "COURSE_NAME_LENGTH_ERROR": "Name length should be at least 3 characters"
+  },
+
+  "courseDetails": {
+    "COURSE_PUBLISH": "Course didn't published yet",
+    "COURSE_UNPUBLISHED": "This course is not currently available"
+  },
+
+  "NOT_ALLOW": "You are not allowed perform this action",
+
+  "SOMETHING_WRONG": "Something wrong happened"
+}
