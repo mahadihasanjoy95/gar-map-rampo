@@ -37,6 +37,11 @@ function MapComponents(props) {
         "record_timestamp": "",
     },)
 
+    /**
+     *
+     * @param pts
+     * @returns {number[]}
+     */
     function get_polygon_centroid(pts) {
         let ring = pts.coordinates[0];
         let first = ring[0], last = ring[ring.length - 1];
@@ -126,7 +131,7 @@ function MapComponents(props) {
                         mapRef.current = map;
                     }}
                 >
-                    <ReactLeafletGoogleLayer key={type} type={type}/>
+                    <ReactLeafletGoogleLayer key={key} type={type}/>
 
                     <Description
                         title={"Switch Map View"}

@@ -1,70 +1,55 @@
-# Getting Started with Create React App
+# GIS(Geographic Information System)
+##### _A simple project to represent map view of personal properties of an area with React JS_
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Screenshot from 2023-03-01 21-41-49](https://user-images.githubusercontent.com/38191975/222308796-85d364aa-5939-4dfe-b6c7-1cb30e45b22d.png)
+> GIS application is showing the area of personal properties with a blue marker
+               
+----
+This is a POC or initial project for GIS. This application represent properties area and details with map. Backend will provide the location details with json data of every properties. This application convert the json to map data and represent the shapes of area with marker in the middle. With clicking on marker user can see the details, and by clicking on popup user will navigate to property details. Also user can scroll the list of places, by clicking which user will also can find the places he is searching for.
 
-## Available Scripts
+**Installation**
 
-In the project directory, you can run:
+GIS requires [Node.js](https://nodejs.org/) v19+ to run.
 
-### `npm start`
+Install the dependencies and devDependencies and start the server.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```sh
+npm config set legacy-peernpm config set legacy-peer-deps true
+npm i
+```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+To Start the project...
 
-### `npm test`
+```sh
+npm start
+```
+**Plugins**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+_Some required library you need to know before start_
 
-### `npm run build`
+| Plugin | README |
+| ------ | ------ |
+| Leaflet | [https://www.npmjs.com/package/leaflet][PlDb] |
+| React Leaflet | [https://www.npmjs.com/package/react-leaflet][PlGh] |
+| Google Layer | [https://www.npmjs.com/package/react-leaflet-google-layer][PlGd] |
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**Project Structure**
+> This is exactly looks like normal react  project. Network configuration, routing and redux or other configuration you can skip here. Components and dataset these two repo I’ll explain to get the main business.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**Important components**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### MapComponent
+- This component has all the logic behind to generate the polygone and genrate the central point of the polygone.
+- It has the **MapContainer** conponent. This component from react-leaflet libraary hepl to represent map properties like Marker or Polygon. Both marker and polygone will discuss later.
+  - **Marker** this component will show the marker on particular position of the mapr, actually with the latitude and longitude. You can change the Icon of the marker and also can customize action with eventhandler. The custom method named **get_polygon_centroid()** will find the middle point of the property.
+  - **Polygon** component is able to create polygon, which is actually the shape of your property with all the coordinates. You can customize all color, opacity, weight or other properties like mouseover or others.
+- By **ReactLeafletGoogleLayer** component from google-leaflet you can represent the map view with satellite or hybrid or other views.
+### SimpleList:
+- This component is for to show the list of your all property. This property has a short desc and click action will be navigate to the marker of your destination location with simple animation. This action is refer the same action when you click directly to the marker of a property.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+[PlDb]: <https://www.npmjs.com/package/leaflet>
+[PlGh]: <https://www.npmjs.com/package/react-leaflet>
+[PlGd]: <https://www.npmjs.com/package/react-leaflet-google-layer>
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![Screenshot from 2023-03-01 21-42-03](https://user-images.githubusercontent.com/38191975/222315530-b03abbd0-5468-43cf-8ff3-2e3d74668d08.png)
