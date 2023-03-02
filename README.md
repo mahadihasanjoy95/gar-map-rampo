@@ -2,7 +2,7 @@
 ##### _A simple project to represent map view of personal properties of an area with React JS_
 
 ![Screenshot from 2023-03-01 21-41-49](https://user-images.githubusercontent.com/38191975/222308796-85d364aa-5939-4dfe-b6c7-1cb30e45b22d.png)
-> GIS application is showing the area of personal properties with a blue marker
+> GIS application is showing the area of personal properties with a blue marker. [live demo](https://gar-map-rampo.vercel.app/)
                
 ----
 This is a POC or initial project for GIS. This application represent properties area and details with map. Backend will provide the location details with json data of every properties. This application convert the json to map data and represent the shapes of area with marker in the middle. With clicking on marker user can see the details, and by clicking on popup user will navigate to property details. Also user can scroll the list of places, by clicking which user will also can find the places he is searching for.
